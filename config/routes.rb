@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  root "posts#index"
   
+  # 랜딩페이지 컨트롤러 (home)
+  root "home#landing"
+  get 'home/landing'
+  
+  
+  # 게시판 컨트롤러 (posts)
   get 'posts/index'
   get 'posts/new'
   

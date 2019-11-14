@@ -20,6 +20,22 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <!-- 회원가입 시, 입력값 3개 추가 -->
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building %><br />
+    <%= f.text_field :building %>
+  </div>
 
   <div class="actions">
     <%= f.submit "회원가입" %>

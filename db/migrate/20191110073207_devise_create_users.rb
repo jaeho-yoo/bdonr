@@ -13,6 +13,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
+      
+      # 회원가입할 때 받는 정보 추가
+      t.string :name
+      t.string :phone
+      t.string :building
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
