@@ -62,3 +62,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+group :development do
+  
+  gem "any_login"
+  gem 'rails_db', '2.0.4'
+end
+
+gem 'jquery-rails'
