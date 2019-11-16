@@ -161,7 +161,7 @@ body {
     <!-- 로그인 기능(Gem) -->
     
     <% if user_signed_in? %>
-        <a><%= current_user.building %> 건물주님 안녕하세요!</a>
+        <a><%= current_user.name %> 건물주님 안녕하세요!</a>
         <%= link_to "로그아웃", destroy_user_session_path, method: :delete %>
     <% else %>
         <%= link_to "로그인", user_session_path %>
