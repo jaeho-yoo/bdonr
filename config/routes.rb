@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   
   post 'posts/create'
   
-  get 'posts/show'
-  get 'posts/edit'
-  get 'posts/update'
-  get 'posts/destroy'
+  get 'posts/show/:id' => "posts#show"
+  get 'posts/edit/:id' => "posts#edit"
+  post 'posts/update/:id' => "posts#update"
+  get 'posts/destroy/:id' => "posts#destroy"
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
