@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_name: MyString
+  tenant_phone: MyString
+  tenant_deposit: MyString
+  tenant_rentfee: MyString
+  tenant_mtnfee: MyString
+  tenant_gender: MyString
+  tenant_startdate: MyString
+  tenant_enddate: MyString
+  tenant_period: MyString
+  tenant_memo: MyString
+  tenant_present: MyString
+  room: one
+
+two:
+  tenant_name: MyString
+  tenant_phone: MyString
+  tenant_deposit: MyString
+  tenant_rentfee: MyString
+  tenant_mtnfee: MyString
+  tenant_gender: MyString
+  tenant_startdate: MyString
+  tenant_enddate: MyString
+  tenant_period: MyString
+  tenant_memo: MyString
+  tenant_present: MyString
+  room: two
