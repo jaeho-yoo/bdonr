@@ -10,50 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_170816) do
-
-  create_table "buildings", force: :cascade do |t|
-    t.string "building_name"
-    t.string "building_type"
-    t.string "building_room"
-    t.string "building_location"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_buildings_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2019_11_16_075814) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string "room_number"
-    t.integer "building_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["building_id"], name: "index_rooms_on_building_id"
-  end
-
-  create_table "tenants", force: :cascade do |t|
-    t.string "tenant_name"
-    t.string "tenant_phone"
-    t.string "tenant_deposit"
-    t.string "tenant_rentfee"
-    t.string "tenant_mtnfee"
-    t.string "tenant_gender"
-    t.string "tenant_startdate"
-    t.string "tenant_enddate"
-    t.string "tenant_period"
-    t.string "tenant_memo"
-    t.string "tenant_present"
-    t.integer "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_tenants_on_room_id"
   end
 
   create_table "users", force: :cascade do |t|
