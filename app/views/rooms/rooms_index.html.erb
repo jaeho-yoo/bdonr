@@ -1,0 +1,10 @@
+    <!-- 추가된 방 리스트 보여주기 -->
+<h1>방 리스트 출력</h1>
+<% @rooms.each do |room| %>
+    방 번호 : <%= room.room_number %>
+    <br>
+    <a href="/rooms/show/<%= room.id %>">방 보기</a>
+    <a href="/rooms/edit/<%= room.id %>">방 정보 수정</a>
+    <a href="/rooms/destroy/<%= room.id %>">방 삭제</a>
+    <hr>
+<% end %>

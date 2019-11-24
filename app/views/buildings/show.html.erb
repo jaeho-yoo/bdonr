@@ -1,2 +1,14 @@
-<h1>Buildings#show</h1>
-<p>Find me in app/views/buildings/show.html.erb</p>
+<h1><%= @building.building_name %></h1>
+
+    <!-- 등록된 방 없으면 아래 문장 띄우기 -->
+<% if @rooms == [] %>
+    <h1>등록된 방이 없습니다. 방을 추가해주세요.</h1>
+<% else %>
+<% end %>
+
+<% if user_signed_in? %>
+    <a href="/rooms/new">새로운 방 추가하기</a>
+<% else %>
+<% end %>
+<hr>
+<a href="<%= buildings_buildings_index_path %>">건물 관리로 돌아가기</a>
