@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   
+  devise_for :users
+  
   # 건물 등록 컨트롤러 (buildings)
-  get 'buildings/index'
+  get 'buildings/buildings_index'
   get 'buildings/new'
   post 'buildings/create'
   get 'buildings/show/:id' => "buildings#show"
   get 'buildings/edit/:id' => "buildings#edit"
   post 'buildings/update/:id' => "buildings#update"
   get 'buildings/destroy/:id' => "buildings#destroy"
-  
-  devise_for :users
   
   
   # 랜딩페이지 컨트롤러 (home)
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   
   
   # 게시판 컨트롤러 (posts)
-  get 'posts/index'
+  get 'posts/posts_index'
   get 'posts/new'
   post 'posts/create'
   get 'posts/show/:id' => "posts#show"

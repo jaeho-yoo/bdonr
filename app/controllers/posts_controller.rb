@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  def index
+  def posts_index
     @posts = Post.all
   end
 
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     
     @post.save
     
-    redirect_to "/posts/index"
+    redirect_to "/posts/posts_index"
   end
 
   def show
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     
     post.save
     
-    redirect_to "/posts/index"
+    redirect_to "/posts/posts_index"
   end
 
   def destroy
@@ -42,6 +42,6 @@ class PostsController < ApplicationController
     
     @post.destroy
     
-    redirect_to "/posts/index"
+    redirect_to "/posts/posts_index"
   end
 end

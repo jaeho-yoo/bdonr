@@ -1,2 +1,50 @@
-<h1>Buildings#new</h1>
-<p>Find me in app/views/buildings/new.html.erb</p>
+<h1>새로운 건물 등록하기</h1>
+
+<form action="/buildings/create" method="POST">
+    건물 이름 : <input type="text" name="building_name">
+    <br>
+    건물 종류 : <span class="custom-select">
+      <select name="building_type">
+        <option value="0">건물의 종류를 선택해주세요</option>
+        <option value="아파트">아파트</option>
+        <option value="오피스텔">오피스텔</option>
+        <option value="연립주택">연립주택</option>
+        <option value="다세대주택">다세대주택</option>
+      </select>
+    </span>
+    <br>
+    건물 방 개수 : <input type="number" name="building_room">
+    <br>
+    건물 위치(서울) : <span class="custom-select">
+      <select name="building_location">
+        <option value="0">건물이 위치한 지역을 선택해주세요</option>
+        <option value="강남구">강남구</option>
+        <option value="강동구">강동구</option>
+        <option value="강북구">강북구</option>
+        <option value="강서구">강서구</option>
+        <option value="관악구">관악구</option>
+        <option value="광진구">광진구</option>
+        <option value="구로구">구로구</option>
+        <option value="금천구">금천구</option>
+        <option value="노원구">노원구</option>
+        <option value="도봉구">도봉구</option>
+        <option value="동대문구">동대문구</option>
+        <option value="동작구">동작구</option>
+        <option value="마포구">마포구</option>
+        <option value="서대문구">서대문구</option>
+        <option value="서초구">서초구</option>
+        <option value="성동구">성동구</option>
+        <option value="성북구">성북구</option>
+        <option value="송파구">송파구</option>
+        <option value="양천구">양천구</option>
+        <option value="영등포구">영등포구</option>
+        <option value="용산구">용산구</option>
+        <option value="은평구">은평구</option>
+        <option value="종로구">종로구</option>
+        <option value="중구">중구</option>
+        <option value="중랑구">중랑구</option>
+      </select>
+    </span>
+    <br>
+    <button type="submit">건물 등록하기</button>
+</form>
