@@ -2,6 +2,8 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     제목: <input type="text" name="title">
     <br>
-    <br>내용:<textarea name="content"></textarea>
+    내용: <textarea name="content" class="tinymce" rows="40"></textarea>
+    <%= tinymce %>
+    <br>
     <button type="submit">제출</button>
 </form>

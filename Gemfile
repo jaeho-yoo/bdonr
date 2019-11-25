@@ -70,3 +70,4 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'tinymce-rails'

@@ -1,6 +1,6 @@
 <hr>
 title : <%= @post.title %>
 <hr>
-content : <%= @post.content %>
+content : <%= @post.content.html_safe %>
 <hr>
 <a href="<%= posts_posts_index_path %>">목록</a>

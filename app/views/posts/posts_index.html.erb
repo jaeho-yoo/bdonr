@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
     title : <%= post.title %>
-    content : <%= post.content %>
+    <br>
+    content : <%= post.content.html_safe %>
+    <br>
     <a href="/posts/show/<%= post.id %>">보기</a>
     <a href="/posts/edit/<%= post.id %>">수정</a>
     <a href="/posts/destroy/<%= post.id %>">삭제</a>

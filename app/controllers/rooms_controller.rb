@@ -8,13 +8,14 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new
+    @building = Building.find()
     
     @room.room_number = params[:room_number]
     
-    @room.building_id = 11
+    @room.building_id = @building.id
     @room.save
     
-    redirect_to "/rooms/rooms_index"
+    redirect_to "/buildings/show/#{@building.id}"
   end
 
   def show

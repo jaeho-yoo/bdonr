@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   # 방 등록 컨트롤러 (rooms)
   get 'rooms/rooms_index'
-  get 'rooms/new'
+  get 'buildings/show/:building_id/rooms/new' => "rooms#new"
   post 'rooms/create'
   get 'rooms/show/:id' => "rooms#show"
   get 'rooms/edit/:id' => "rooms#edit"
