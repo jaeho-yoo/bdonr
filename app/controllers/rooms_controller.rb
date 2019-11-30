@@ -4,18 +4,16 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @building = Building.find(@building_id)
+    # @building = Building.find(params[:id])
   end
 
   def create
-    @room = Room.new
-    @building = Building.find()
+    building = params[:building_id]
+    room = params[:room_number]
+    Room.create(room_number: room, building_id: building )
     
-    @room.room_number = params[:room_number]
-    
-    @room.building_id = @building.id
-    @room.save
-    
-    redirect_to "/buildings/show/#{@building.id}"
+    redirect_to "/buildings/show/#{building}"
   end
 
   def show

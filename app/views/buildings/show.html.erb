@@ -1,10 +1,11 @@
 <h1><%= @building.building_name %></h1>
 
-    <!-- 등록된 방 없으면 아래 문장 띄우기 -->
-<% if @rooms == [] %>
-    <h1>등록된 방이 없습니다. 방을 추가해주세요.</h1>
-<% else %>
+<!-- 등록된 방 없으면 문장 띄울까 계획 중 -->
+
+<% current_user.buildings.find(@building_id).rooms.each do |room| %>
+    <%= room.room_number %>
 <% end %>
+<br/>
 
 <% if user_signed_in? %>
     <a href="/buildings/show/<%= @building.id %>/rooms/new">새로운 방 추가하기</a>
