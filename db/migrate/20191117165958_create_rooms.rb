@@ -1,7 +1,7 @@
 class CreateRooms < ActiveRecord::Migration[5.2]
   def change
     create_table :rooms do |t|
-      t.string :room_number
+      t.text :room_number
       t.references :building, foreign_key: true
 
       t.timestamps

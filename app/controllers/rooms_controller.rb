@@ -4,20 +4,23 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @building = Building.find(@building_id)
-    # @building = Building.find(params[:id])
+    @building_id = params[:building_id]
   end
 
   def create
-    building = params[:building_id]
-    room = params[:room_number]
-    Room.create(room_number: room, building_id: building )
+    @room = Room.new
+    @room.room_number = params[:room_number]
+    @room.building_id = params[:building_id]
+    @room.save
     
-    redirect_to "/buildings/show/#{building}"
+    redirect_to "/buildings/show/#{@room.building_id}"
   end
 
   def show
+    @rooms = Room.all
+    @tenants = Tenant.all
     @room = Room.find(params[:id])
+    @building_id = params[:building_id]
   end
 
   def edit
@@ -25,13 +28,11 @@ class RoomsController < ApplicationController
   end
 
   def update
-    room = Building.find(params[:id])
-    
+    room = Room.find(params[:id])
     room.room_number = params[:room_number]
-    
     room.save
     
-    redirect_to "/rooms/rooms_index"
+    redirect_to "/buildings/show/#{room.building_id}"
   end
 
   def destroy
@@ -39,6 +40,6 @@ class RoomsController < ApplicationController
     
     @room.destroy
     
-    redirect_to "/rooms/rooms_index"
+    redirect_to "/buildings/show/#{@room.building_id}"
   end
 end

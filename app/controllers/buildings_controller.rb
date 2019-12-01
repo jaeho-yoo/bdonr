@@ -7,7 +7,7 @@ class BuildingsController < ApplicationController
   def show
     @building = Building.find(params[:id])
     @building_id = params[:id]
-    @rooms = Room.all
+    # @rooms = Room.all
   end
 
   def new

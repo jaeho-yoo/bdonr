@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   devise_for :users
   
+  # 랜딩페이지 컨트롤러 (home)
+  root "home#landing"
+  get 'home/landing'
+  
   
   # 건물 등록 컨트롤러 (buildings)
   get 'buildings/buildings_index'
@@ -15,17 +19,21 @@ Rails.application.routes.draw do
   
   # 방 등록 컨트롤러 (rooms)
   get 'rooms/rooms_index'
-  get 'buildings/show/:building_id/rooms/new' => "rooms#new"
+  get 'buildings/:building_id/rooms/new' => "rooms#new"
   post 'rooms/create'
-  get 'rooms/show/:id' => "rooms#show"
-  get 'rooms/edit/:id' => "rooms#edit"
+  get 'buildings/:building_id/rooms/show/:id' => "rooms#show"
+  get 'buildings/:building_id/rooms/edit/:id' => "rooms#edit"
   post 'rooms/update/:id' => "rooms#update"
   get 'rooms/destroy/:id' => "rooms#destroy"
   
   
-  # 랜딩페이지 컨트롤러 (home)
-  root "home#landing"
-  get 'home/landing'
+  # 세입자 등록 컨트롤러 (tenants)
+  get 'buildings/:building_id/rooms/:room_id/tenants/new' => "tenants#new"
+  post 'tenants/create'
+  get 'tenants/show'
+  get 'tenants/edit'
+  post 'tenants/update'
+  get 'tenants/destroy'
   
   
   # 게시판 컨트롤러 (posts)

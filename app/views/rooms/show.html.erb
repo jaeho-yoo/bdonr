@@ -1,2 +1,26 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<h1><%= Building.find(params[:building_id]).building_name %> <%= Room.find(params[:id]).room_number %></h1>
+
+<% @tenants.each do |tenant| %>
+    세입자 이름: <%= tenant.tenant_name %>
+    성별: <%= tenant.tenant_gender %>
+    전화번호: <%= tenant.tenant_phone %>
+    계약 기간: <%= tenant.tenant_period %>
+    입주일: <%= tenant.tenant_startdate %>
+    만료일: <%= tenant.tenant_enddate %>
+    보증금: <%= tenent.tenant_deposit %>
+    월세: <%= tenant.tenant_rentfee %>
+    관리비: <%= tenant.tenant_mtnfee %>
+    메모: <%= tenant.tenant_memo %>
+    <a href="/buildings/<%= @building_id %>/rooms/show/<%= room.id %>">세입자 관리</a>
+    <a href="/buildings/<%= @building_id %>/rooms/edit/<%= room.id %>">방 정보 수정</a>
+    <a href="/rooms/destroy/<%= room.id %>">세입자 정보 삭제</a>
+    <br>
+    <hr>
+<% end %>
+
+<% if user_signed_in? %>
+    <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/new">세입자 등록하기</a>
+<% else %>
+<% end %>
+<hr>
+<a href="<%= buildings_buildings_index_path %>">방 관리로 돌아가기</a>

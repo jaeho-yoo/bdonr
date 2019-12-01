@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_11_17_170816) do
 
   create_table "buildings", force: :cascade do |t|
-    t.string "building_name"
+    t.text "building_name"
     t.string "building_type"
     t.string "building_room"
     t.string "building_location"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_170816) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "room_number"
+    t.text "room_number"
     t.integer "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 2019_11_17_170816) do
   create_table "tenants", force: :cascade do |t|
     t.string "tenant_name"
     t.string "tenant_phone"
-    t.string "tenant_deposit"
-    t.string "tenant_rentfee"
-    t.string "tenant_mtnfee"
+    t.integer "tenant_deposit"
+    t.integer "tenant_rentfee"
+    t.integer "tenant_mtnfee"
     t.string "tenant_gender"
     t.string "tenant_startdate"
     t.string "tenant_enddate"
-    t.string "tenant_period"
-    t.string "tenant_memo"
+    t.text "tenant_period"
+    t.text "tenant_memo"
     t.string "tenant_present"
     t.integer "room_id"
     t.datetime "created_at", null: false

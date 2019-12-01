@@ -1,4 +1,4 @@
-<h1>방 추가하기</h1>
+<h1><%= Building.find(params[:building_id]).building_name %> 방 추가하기</h1>
 
 <form action="/rooms/create" method="POST">
     방 번호 : <input type="text" name="room_number">

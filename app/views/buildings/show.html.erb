@@ -1,14 +1,18 @@
-<h1><%= @building.building_name %></h1>
+<h1><%= Building.find(params[:id]).building_name %></h1>
 
 <!-- 등록된 방 없으면 문장 띄울까 계획 중 -->
 
 <% current_user.buildings.find(@building_id).rooms.each do |room| %>
     <%= room.room_number %>
+    <a href="/buildings/<%= @building_id %>/rooms/show/<%= room.id %>">세입자 관리</a>
+    <a href="/buildings/<%= @building_id %>/rooms/edit/<%= room.id %>">방 정보 수정</a>
+    <a href="/rooms/destroy/<%= room.id %>">방 삭제</a>
+    <br>
+    <hr>
 <% end %>
-<br/>
 
 <% if user_signed_in? %>
-    <a href="/buildings/show/<%= @building.id %>/rooms/new">새로운 방 추가하기</a>
+    <a href="/buildings/<%= @building_id %>/rooms/new">새로운 방 추가하기</a>
 <% else %>
 <% end %>
 <hr>

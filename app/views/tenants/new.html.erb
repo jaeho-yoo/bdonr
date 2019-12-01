@@ -1,0 +1,31 @@
+<h1><%= Building.find(params[:building_id]).building_name %> <%= Room.find(params[:room_id]).room_number %> 세입자 등록하기</h1>
+
+<form action="/tenants/create" method="POST">
+    세입자 이름 : <input type="string" name="tenant_name">
+    <br>
+    성별 : <input type="radio" name="tenant_gender" value="남성" checked="checked">남성 <input type="radio" name="tenant_gender" value="여성">여성
+    <br>
+    전화번호 : <input type="string" name="tenant_phone">
+    <br>
+    계약 기간 : <input type="text" name="tenant_period">
+    <br>
+    입주일 : <input type="date" name="tenant_startdate">
+    <br>
+    만료일 : <input type="date" name="tenant_enddate">
+    <br>
+    <!-- 보증금/월세/관리비는 원화(won)로 input 받고 싶은데.. -->
+    보증금 : <input type="integer" name="tenant_deposit">원
+    <br>
+    월세 : <input type="integer" name="tenant_rentfee">원
+    <br>
+    관리비 : <input type="integer" name="tenant_mtnfee">원
+    <br>
+    메모 : <textarea type="text" name="tenant_memo">중요한 정보를 메모하세요!</textarea>
+    <br>
+    
+    <!-- building_id 와 room_id 히든 값으로 보내주기 -->
+    <input type="hidden" value="<%= @building_id %>" name="building_id">
+    <input type="hidden" value="<%= @room_id %>" name="room_id">
+    
+    <button type="submit">세입자 등록하기</button>
+</form>

@@ -1,2 +1,8 @@
-<h1>Rooms#edit</h1>
-<p>Find me in app/views/rooms/edit.html.erb</p>
+<h1>방 정보 수정</h1>
+
+<form action="/rooms/update/<%= @room.id %>" method="POST">
+    방 번호 : <input type="string" value=<%= @room.room_number %> name="room_number">
+    <input type="hidden" value="<%= @building_id %>" name="building_id">
+    <br>
+    <button type="submit">방 정보 수정</button>
+</form>
