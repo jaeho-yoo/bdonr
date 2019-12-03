@@ -8,6 +8,7 @@ class TenantsController < ApplicationController
   def create
     @tenant = Tenant.new
     @tenant.tenant_name = params[:tenant_name]
+    @tenant.room_id = params[:room_id]
     @tenant.tenant_gender = params[:tenant_gender]
     @tenant.tenant_period = params[:tenant_period]
     @tenant.tenant_startdate = params[:tenant_startdate]

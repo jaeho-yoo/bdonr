@@ -1,11 +1,11 @@
 <h1><%= Building.find(params[:building_id]).building_name %> <%= Room.find(params[:room_id]).room_number %> 세입자 등록하기</h1>
 
 <form action="/tenants/create" method="POST">
-    세입자 이름 : <input type="string" name="tenant_name">
+    세입자 이름 : <input type="text" name="tenant_name">
     <br>
     성별 : <input type="radio" name="tenant_gender" value="남성" checked="checked">남성 <input type="radio" name="tenant_gender" value="여성">여성
     <br>
-    전화번호 : <input type="string" name="tenant_phone">
+    전화번호 : <input type="text" name="tenant_phone">
     <br>
     계약 기간 : <input type="text" name="tenant_period">
     <br>

@@ -7,13 +7,13 @@
     계약 기간: <%= tenant.tenant_period %>
     입주일: <%= tenant.tenant_startdate %>
     만료일: <%= tenant.tenant_enddate %>
-    보증금: <%= tenent.tenant_deposit %>
-    월세: <%= tenant.tenant_rentfee %>
-    관리비: <%= tenant.tenant_mtnfee %>
+    보증금: <%= number_to_currency(tenant.tenant_deposit, precision: 0, delimiter: ",", unit: "") %>원
+    월세: <%= number_to_currency(tenant.tenant_rentfee, precision: 0, delimiter: ",", unit: "") %>원
+    관리비: <%= number_to_currency(tenant.tenant_mtnfee, precision: 0, delimiter: ",", unit: "") %>원
     메모: <%= tenant.tenant_memo %>
-    <a href="/buildings/<%= @building_id %>/rooms/show/<%= room.id %>">세입자 관리</a>
-    <a href="/buildings/<%= @building_id %>/rooms/edit/<%= room.id %>">방 정보 수정</a>
-    <a href="/rooms/destroy/<%= room.id %>">세입자 정보 삭제</a>
+    <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">세입자 관리</a>
+    <a href="/buildings/<%= @building_id %>/rooms/edit/<%= @room.id %>">방 정보 수정</a>
+    <a href="/rooms/destroy/<%= @room.id %>">세입자 정보 삭제</a>
     <br>
     <hr>
 <% end %>
