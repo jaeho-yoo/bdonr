@@ -56,5 +56,12 @@ class TenantsController < ApplicationController
   end
   
   def destroy
+    @building_id = params[:building_id]
+    @room_id = params[:room_id]
+    
+    @tenant = Tenant.find(params[:tenant_id])
+    @tenant.destroy
+    
+    redirect_to "/buildings/#{@building_id}/rooms/show/#{@room_id}"
   end
 end

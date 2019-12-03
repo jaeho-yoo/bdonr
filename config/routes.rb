@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get 'tenants/show'
   get 'buildings/:building_id/rooms/:room_id/tenants/edit/:tenant_id' => "tenants#edit"
   post 'buildings/:building_id/rooms/:room_id/tenants/update/:tenant_id' => "tenants#update"
-  get 'tenants/destroy'
+  get 'buildings/:building_id/rooms/:room_id/tenants/destroy/:tenant_id' => "tenants#destroy"
   
   
   # 게시판 컨트롤러 (posts)

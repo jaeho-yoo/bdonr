@@ -23,7 +23,7 @@
     <br>
     <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">세입자 관리</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/edit/<%= tenant.id %>">세입자 정보 수정</a>
-    <a href="/rooms/destroy/<%= @room.id %>">세입자 정보 삭제</a>
+    <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/destroy/<%= tenant.id %>">세입자 정보 삭제</a>
     <br>
     <hr>
 <% end %>
