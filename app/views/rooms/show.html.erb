@@ -2,17 +2,27 @@
 
 <% @tenants.each do |tenant| %>
     세입자 이름: <%= tenant.tenant_name %>
+    <br>
     성별: <%= tenant.tenant_gender %>
+    <br>
     전화번호: <%= tenant.tenant_phone %>
+    <br>
     계약 기간: <%= tenant.tenant_period %>
+    <br>
     입주일: <%= tenant.tenant_startdate %>
+    <br>
     만료일: <%= tenant.tenant_enddate %>
+    <br>
     보증금: <%= number_to_currency(tenant.tenant_deposit, precision: 0, delimiter: ",", unit: "") %>원
+    <br>
     월세: <%= number_to_currency(tenant.tenant_rentfee, precision: 0, delimiter: ",", unit: "") %>원
+    <br>
     관리비: <%= number_to_currency(tenant.tenant_mtnfee, precision: 0, delimiter: ",", unit: "") %>원
+    <br>
     메모: <%= tenant.tenant_memo %>
+    <br>
     <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">세입자 관리</a>
-    <a href="/buildings/<%= @building_id %>/rooms/edit/<%= @room.id %>">방 정보 수정</a>
+    <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/edit/<%= tenant.id %>">세입자 정보 수정</a>
     <a href="/rooms/destroy/<%= @room.id %>">세입자 정보 삭제</a>
     <br>
     <hr>

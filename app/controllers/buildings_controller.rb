@@ -1,7 +1,11 @@
 class BuildingsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   def buildings_index
-    @buildings = Building.all
+    if user_signed_in?
+      @buildings = Building.all
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def show

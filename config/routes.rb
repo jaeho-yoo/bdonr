@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   get 'buildings/:building_id/rooms/:room_id/tenants/new' => "tenants#new"
   post 'tenants/create'
   get 'tenants/show'
-  get 'tenants/edit'
-  post 'tenants/update'
+  get 'buildings/:building_id/rooms/:room_id/tenants/edit/:tenant_id' => "tenants#edit"
+  post 'buildings/:building_id/rooms/:room_id/tenants/update/:tenant_id' => "tenants#update"
   get 'tenants/destroy'
   
   
