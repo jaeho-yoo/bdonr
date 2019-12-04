@@ -1,6 +1,7 @@
 <h1><%= Building.find(params[:building_id]).building_name %> <%= Room.find(params[:id]).room_number %></h1>
 
-<% @tenants.each do |tenant| %>
+<% tenant = Tenant.find_by(room_id: params[:id]) %>
+<% if tenant.present? %>
     세입자 이름: <%= tenant.tenant_name %>
     <br>
     성별: <%= tenant.tenant_gender %>
@@ -21,16 +22,17 @@
     <br>
     메모: <%= tenant.tenant_memo %>
     <br>
-    <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">세입자 관리</a>
+    <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">월세 납부 내역 관리</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/edit/<%= tenant.id %>">세입자 정보 수정</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/destroy/<%= tenant.id %>">세입자 정보 삭제</a>
     <br>
     <hr>
-<% end %>
-
+<% else %>
 <% if user_signed_in? %>
+    <h2>세입자가 없습니다!</h2>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/new">세입자 등록하기</a>
 <% else %>
 <% end %>
 <hr>
-<a href="<%= buildings_buildings_index_path %>">방 관리로 돌아가기</a>
+<%= link_to "방 관리로 돌아가기", buildings_buildings_index_path %>
+<% end %>
