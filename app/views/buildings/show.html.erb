@@ -1,16 +1,28 @@
+<br>
 <h1><%= Building.find(params[:id]).building_name %></h1>
-
 <!-- 등록된 방 없으면 문장 띄울까 계획 중 -->
-
+<div class="row mb-2">
 <% current_user.buildings.find(@building_id).rooms.each do |room| %>
-    <%= room.room_number %>
+  <div class="col-md-3">
+       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static align-items-center">
+   <strong class="d-inline-block mb-2 text-primary"><h3> <%= room.room_number %></h3> </strong>
+   <% if room.tenants.present? %>
+        <strong><%= room.tenants.last.tenant_name %> </strong>
+       <strong class="d-inline-block mb-2 text-primary"><%= room.tenants.last.tenant_deposit / 10000 %> / <%= room.tenants.last.tenant_rentfee / 10000 %> </strong>
+   <% else %>
+       <strong>세입자 없음</strong>
+   <% end %>
     <a href="/buildings/<%= @building_id %>/rooms/show/<%= room.id %>">세입자 관리</a>
     <a href="/buildings/<%= @building_id %>/rooms/edit/<%= room.id %>">방 정보 수정</a>
     <a href="/rooms/destroy/<%= room.id %>">방 삭제</a>
     <br>
     <hr>
+    </div>
+    </div>
+    </div>
 <% end %>
-
+</div>
 <% if user_signed_in? %>
     <a href="/buildings/<%= @building_id %>/rooms/new">새로운 방 추가하기</a>
 <% else %>

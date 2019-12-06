@@ -48,6 +48,7 @@
                   <% 12.times do |n| %>
                     <tr>
                       <th scope="row"><%= (tenant.tenant_startdate + n.month).strftime("%Y-%m") %></th>
+                      
                       <td><input type="checkbox"></td>
                     </tr>
                   <% end %>
