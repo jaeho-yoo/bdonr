@@ -9,26 +9,27 @@
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="form-label-group">
                 <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id:  "inputEmail"%>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "inputEmail" %>
               </div>
               
               <div class="form-label-group">
                 <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "inputPassword" %>
               </div>
               
               <% if devise_mapping.rememberable? %>
                 <div class="field">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
+                  <%= f.check_box :remember_me, class: "custom-control-input", id: "customCheck1" %>
+                  <%= f.label :remember_me, class: "custom-control-label", for: "customCheck1" %>
                 </div>
               <% end %>
               
               <div class="custom-control custom-checkbox mb-3">
-                <div class="btn btn-lg btn-primary btn-block text-uppercase">
+                <div>
                   <%= f.submit "로그인", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
                 </div>
               </div>
+              <hr class="my-4">
               <% end %>
               
               <%= render "devise/shared/links" %>
@@ -39,25 +40,6 @@
     </div>
   </div>
 </body>
-
-
-              <div>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
-              </div>
-
-              <div>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
-              </div>
-
-              <div>
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div>
-              <button type="submit">Sign in</button>
-              <hr class="my-4">
-
 
 <style>
 body {
@@ -158,16 +140,6 @@ body {
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
-}
-
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
-
-.btn-facebook {
-  color: white;
-  background-color: #3b5998;
 }
 
 /* Fallback for Edge
