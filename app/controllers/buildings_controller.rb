@@ -1,5 +1,6 @@
 class BuildingsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!
+  
   def buildings_index
     if user_signed_in?
       @buildings = Building.all
