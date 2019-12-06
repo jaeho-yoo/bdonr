@@ -1,17 +1,24 @@
-<% @posts.each do |post| %>
-    title : <%= post.title %>
-    <br>
-    content : <%= post.content.html_safe %>
-    <br>
-    <a href="/posts/show/<%= post.id %>">보기</a>
-    <a href="/posts/edit/<%= post.id %>">수정</a>
-    <a href="/posts/destroy/<%= post.id %>">삭제</a>
-    <hr>
-<% end %>
-
+<div class="container">
+    <!-- Page Features -->
+    <div class="row text-center">
+      <% @posts.each_with_index do |post, index| %>
+      <div class="col-lg-4 col-sm-12 posts-index-card">
+        <div class="card h-100">
+          <img class="card-img-top" src="/bdonr_now[<%= index %>].jpg" alt="" width="580px" height="210px">
+          <div class="card-body">
+            <h4 class="card-title"><%= post.title %></h4>
+          </div>
+          <div class="card-footer">
+            <a href="/posts/show/<%= post.id %>" class="btn btn-primary">더 보기</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>
 
 <% if user_signed_in? %>
-    <a href="/posts/new">글쓰기</a>
-<% else %>
+<div>
+  <a href="/posts/new">글쓰기</a>
+</div>
 <% end %>
-
