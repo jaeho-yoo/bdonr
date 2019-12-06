@@ -1,4 +1,4 @@
-    <!-- 등록된 빌딩 없으면 아래 문장 띄우기 -->
+<!-- 등록된 빌딩 없으면 아래 문장 띄우기 -->
 <% if user_signed_in? %>
     <% if @buildings == [] %>
         <h1>등록된 빌딩이 없습니다. 건물을 등록해주세요.</h1>
@@ -7,25 +7,26 @@
     <% end %>
 <% else %>
     <!-- 로그인 안 되어 있으면 로그인 창으로 보내기 -->
-<% end %>
-
+<!--<% end %>-->
     <!-- 등록된 건물 리스트 보여주기 -->
-<% @buildings.each do |building| %>
-    건물 이름 : <%= building.building_name %>
-    <br>
-    건물 종류 : <%= building.building_type %>
-    <br>
-    건물 방 개수 : <%= building.building_room %>
-    <br>
-    건물 위치 : <%= building.building_location %>
-    <br>
-    <a href="/buildings/show/<%= building.id %>">방 관리</a>
-    <a href="/buildings/edit/<%= building.id %>">건물 정보 수정</a>
-    <a href="/buildings/destroy/<%= building.id %>">건물 삭제</a>
-    <hr>
-<% end %>
-
 <% if user_signed_in? %>
     <a href="/buildings/new">새로운 건물 추가하기</a>
 <% else %>
 <% end %>
+<div class="row mb-2">
+    <% @buildings.each do |building| %>
+    <div class="col-md-3">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static align-items-center">
+          <strong class="d-inline-block mb-2 text-primary"><%= building.building_type %></strong>
+          <h3 class="mb-0"><%= building.building_name %></h3>
+          <div class="mb-1 text-muted">건물 방 개수 : <%= building.building_room %></div>
+          <p class="card-text mb-auto">건물 위치 : <%= building.building_location %></p>
+          <a href="/buildings/show/<%= building.id %>" class="stretched-link">방 관리</a>
+          <a href="/buildings/edit/<%= building.id %>">건물 정보 수정</a>
+          <a href="/buildings/destroy/<%= building.id %>">건물 삭제</a>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>

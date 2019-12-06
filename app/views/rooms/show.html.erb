@@ -22,11 +22,41 @@
     <br>
     메모: <%= tenant.tenant_memo %>
     <br>
-    <a href="/buildings/<%= @building_id %>/rooms/show/<%= @room.id %>">월세 납부 내역 관리</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/edit/<%= tenant.id %>">세입자 정보 수정</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/destroy/<%= tenant.id %>">세입자 정보 삭제</a>
-    <br>
-    <hr>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              월세 납부 내역 관리
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">날짜</th>
+                  <th scope="col">납부 확인</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% 12.times do |n| %>
+                    <tr>
+                      <th scope="row"><%= (tenant.tenant_startdate + n.month).strftime("%Y-%m") %></th>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                  <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
 <% else %>
 <% if user_signed_in? %>
     <h2>세입자가 없습니다!</h2>
