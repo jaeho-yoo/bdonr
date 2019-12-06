@@ -24,6 +24,7 @@
     <br>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/edit/<%= tenant.id %>">세입자 정보 수정</a>
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/destroy/<%= tenant.id %>">세입자 정보 삭제</a>
+    <a href="/buildings/<%= @building_id %>">방 관리로 돌아가기</a>
     <div class="accordion" id="accordionExample">
       <div class="card">
         <div class="card-header" id="headingOne">
@@ -63,6 +64,4 @@
     <a href="/buildings/<%= @building_id %>/rooms/<%= @room.id %>/tenants/new">세입자 등록하기</a>
 <% else %>
 <% end %>
-<hr>
-<%= link_to "방 관리로 돌아가기", buildings_buildings_index_path %>
 <% end %>

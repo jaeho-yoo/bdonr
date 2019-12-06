@@ -1,32 +1,42 @@
 <!-- 등록된 빌딩 없으면 아래 문장 띄우기 -->
 <% if user_signed_in? %>
     <% if @buildings == [] %>
-        <h1>등록된 빌딩이 없습니다. 건물을 등록해주세요.</h1>
+        <h1 class="font-italic">등록된 빌딩이 없습니다. 건물을 등록해주세요.</h1>
+<hr>
     <% else %>
+        <div class = "px-0">
+        <br>
         <h1><%= current_user.name %> 님이 등록한 건물입니다.</h1>
+        </div>
     <% end %>
 <% else %>
     <!-- 로그인 안 되어 있으면 로그인 창으로 보내기 -->
-<!--<% end %>-->
+    <% end %>
     <!-- 등록된 건물 리스트 보여주기 -->
-<% if user_signed_in? %>
-    <a href="/buildings/new">새로운 건물 추가하기</a>
-<% else %>
-<% end %>
 <div class="row mb-2">
     <% @buildings.each do |building| %>
     <div class="col-md-3">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static align-items-center">
-          <strong class="d-inline-block mb-2 text-primary"><%= building.building_type %></strong>
+        <div class="col p-4 d-flex flex-column position-static align-items-center card bg-light">
+          <strong class="d-inline-block mb-2 text-primary "><%= building.building_type %></strong>
           <h3 class="mb-0"><%= building.building_name %></h3>
-          <div class="mb-1 text-muted">건물 방 개수 : <%= building.building_room %></div>
-          <p class="card-text mb-auto">건물 위치 : <%= building.building_location %></p>
-          <a href="/buildings/show/<%= building.id %>" class="stretched-link">방 관리</a>
-          <a href="/buildings/edit/<%= building.id %>">건물 정보 수정</a>
-          <a href="/buildings/destroy/<%= building.id %>">건물 삭제</a>
+          <div class="mb-1 ">건물 방 개수 : <%= building.building_room %></div>
+          <div class="mb-1">건물 위치 : <%= building.building_location %></div>
+         <div class="btn-group" role="group" aria-label="Basic example">
+             <a href="/buildings/show/<%= building.id %>"><button type="button" class="btn btn-light">관리</button></a>
+             <a href="/buildings/edit/<%= building.id %>"><button type="button" class="btn btn-light">수정</button></a>
+             <a href="/buildings/destroy/<%= building.id %>"><button type="button" class="btn btn-light">삭제</button></a>
+</div>
         </div>
       </div>
     </div>
 <% end %>
 </div>
+ <% if user_signed_in? %>
+    <div class="container-md">
+        <a href="/buildings/new">
+            <button type="button" class="btn btn-lg btn-block btn btn-outline-primary">새로운 건물 추가하기</button>
+        </a>
+    </div>
+<% else %>
+<% end %>

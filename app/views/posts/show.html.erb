@@ -1,6 +1,41 @@
+<br>
+<br>
+<img class="now_image" src="/bdonr_now[0].jpg" alt="" width="600px" height="350px">
+
+<br>
+<br>
+
+<div class="post_title">
+    <h1><%= @post.title %></h1>
+</div>
+
 <hr>
-title : <%= @post.title %>
-<hr>
-content : <%= @post.content.html_safe %>
-<hr>
-<a href="<%= posts_posts_index_path %>">목록</a>
+<br>
+
+<div class="post_content">
+    <h4><%= @post.content.html_safe %></h4>
+</div>
+
+<div class="post_content">
+    <a href="<%= posts_posts_index_path %>" class="btn btn-primary">목록으로 돌아가기</a>
+</div>
+
+<div class="post_content">
+    <a href="/posts/edit/<%= @post.id %>" class="btn btn-primary">수정하기</a>
+</div>
+
+<style>
+    .now_image {
+        display: table; margin-left: auto; margin-right: auto;;
+    }
+    
+    .post_title {
+        text-align: center;
+    }
+    
+    .post_content {
+        text-align: center;
+        margin: 10px 230px 10px 230px;
+        line-height: 120%;
+    }
+</style>
