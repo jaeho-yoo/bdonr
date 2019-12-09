@@ -8,10 +8,10 @@
             <div class="col p-4 d-flex flex-column position-static align-items-center card bg-light">
    <strong class="d-inline-block mb-2 text-primary rounded-pill"><h3> <%= room.room_number %></h3> </strong>
    <% if room.tenants.present? %>
-       <strong><%= room.tenants.last.tenant_name %> </strong>
-       <strong class="d-inline-block mb-2 text-primary"><%= room.tenants.last.tenant_deposit / 10000 %> / <%= room.tenants.last.tenant_rentfee / 10000 %> </strong>
+       <strong><h4><%= room.tenants.last.tenant_name %> </strong></h4>
+       <strong class="d-inline-block mb-2"><h5><%= room.tenants.last.tenant_deposit / 10000 %> / <%= room.tenants.last.tenant_rentfee / 10000 %></h5></strong>
    <% else %>
-       <strong>세입자 없음</strong>
+       <strong><h4>세입자 없음</strong></h4>
    <% end %>
     <div class="btn-group" role="group" aria-label="Basic example">
     <a href="/buildings/<%= @building_id %>/rooms/show/<%= room.id %>"><button type="button" class="btn btn-light"> 관리</button></a>
@@ -26,14 +26,20 @@
 <section class ="text-center">
 <div>
 <% if user_signed_in? %>
-<a class="btn btn-primary rounded-pill" href="/buildings/<%= @building_id %>/rooms/new" role="button" style="margin-right: 2vw;">새로운 방 추가하기</a>
+ <div class="container-md">
+<a class="btn btn-lg btn-block btn btn-outline-primary tt1" href="/buildings/<%= @building_id %>/rooms/new" role="button" style="margin-right: 2vw;">새로운 방 추가하기</a></div>
 <% else %>
 <% end %>
-<a class="btn btn-primary rounded-pill" href="<%= buildings_buildings_index_path %>" role="button">건물 관리로 돌아가기</a>
-</div>
+ <div class="container-md">
+<a class="btn btn-lg btn-block btn btn-outline-primary tt1" href="<%= buildings_buildings_index_path %>" role="button">건물 관리로 돌아가기</a>
+</div></div>
 </section>
 <style>
     .card {
-        height: 30vh;
+        height: 25vh;
+    }
+    
+    .tt1 {
+      margin-top: 15px;
     }
 </style>
